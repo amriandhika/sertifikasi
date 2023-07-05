@@ -1,0 +1,19 @@
+name: Publish Website to CPanel
+on:
+  push:
+    branches:
+      - main
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    - name: FTP-Deploy-Action
+      uses: samkirkland/ftp-deploy-action@4.0.0
+      with:
+        server: ${{ secrets.SERTIKOM_FTP_SERVER }}
+        username: ${{ secrets.SERTIKOM_FTP_USERNAME }}
+        password: ${{ secrets.SERTIKOM_FTP_PASSWORD }}
