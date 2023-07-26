@@ -1,0 +1,218 @@
+
+
+/* main wrapper */
+.blob-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 50vw); /* vw = viewport width */
+    grid-auto-rows: 50vw;
+}
+
+/* blob containers h1 + svg */
+.blob {
+    display: grid;
+    grid-template-columns: repeat(10 , 5vw);
+    grid-template-rows: repeat(10 , 5vw);
+}
+
+
+/* quick media query for a vw 2 column to 4 collumn layout */
+@media all and (min-width:500px) {
+
+    .blob-wrapper {
+        grid-template-columns: repeat(4, 25vw);
+        grid-auto-rows: 25vw;
+    }
+
+    .blob {
+        grid-template-columns: repeat(10 , 2.5vw);
+        grid-template-rows: repeat(10 , 2.5vw);
+    }
+}
+
+
+/* reset svg to width of container, used blobmaker.app to make this and the viewbox comes with some padding */
+
+
+
+
+.blob h1:first-letter {
+    vertical-align: text-top;
+}
+
+.blob:nth-of-type(odd) h1:first-letter {
+    vertical-align: middle;
+}
+
+.blob svg {
+    grid-column: 1 / span 8;
+    grid-row-start: 2;
+    fill: #FE840E;
+    transition: 0.3s all;
+}
+
+
+/* shuffle position blob h1 */
+.blob:nth-of-type(odd) h1 {
+    grid-row-start: 1
+}
+
+.blob:nth-of-type(3) h1 {
+    grid-column-start: 5;
+    grid-row-start: 1
+}
+
+.blob:nth-of-type(3n + 2) h1 {
+    grid-column-start: 2;
+    grid-row-start: 4
+}
+
+/* shuffle colors blob svg */
+.blob:nth-of-type(even) svg path {
+    fill: var(--kim);
+}
+
+.blob:nth-of-type(2n + 5)  svg path {
+    fill: var(--abraham);
+}
+
+.blob:nth-of-type(3n + 2) svg path {
+    fill: var(--natalie);
+}
+
+
+.blob:nth-of-type(6n + 3) svg path {
+    fill: var(--jp2);
+}
+
+.blob:nth-of-type(odd) svg {
+    grid-column: 2 / span 8;
+}
+
+.blob:nth-of-type(7) svg  {
+    grid-column: 1 / span 9;
+    grid-row-start: 3 / span 7;
+}
+
+
+/* variables!! */
+:root {
+    --natalie: yellow;
+}
+
+:root {
+    --abraham: #5a70d9;
+}
+
+:root {
+    --kim: #87f6ff;
+}
+
+:root {
+    --jp: #ffefe0;
+}
+
+
+:root {
+    --jp2: #FE840E;
+}
+
+
+/* ----- bonus, hovers!!!! ------*/
+.blob h1,
+.blob svg,
+.blob:hover svg path {
+    transition: .5s all ease-in-out;
+}
+
+.blob:hover h1 {
+    transform: translate(2vw, -2vw);
+}
+
+.blob:hover svg {
+    transition-delay: 0.2s;
+    transform: translate(-2vw, -2vw);
+}
+
+.blob:hover svg path {
+    transition-delay: 0.4s;
+    fill: white;
+}
+.btn {
+    margin-bottom: 0;!important;
+    letter-spacing: -0.025rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 7px -1px rgb(0 0 0 / 11%), 0 2px 4px -1px rgb(0 0 0 / 7%);
+    background-size: 150%;
+    background-position-x: 25%;
+}
+
+
+.bs-stepper .step-trigger:hover {
+    background: none;
+}
+.nav-link:hover, .nav-link:focus {
+    color: #387cff;
+}
+.nav-link:active, .nav-link.active {
+    color: #387cff;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #2b294b;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+.avatar-xxl {
+    width: 150px !important;
+    height: 150px !important;
+}
+.max-height-vh-100 {
+    max-height: 100vh!important;
+}
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: #495057;
+    background-color: #fff;
+    /*background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e);*/
+    background-repeat: no-repeat;
+    background-position: right 0.45rem center;
+    background-size: 14px 10px;
+    border: 1px solid #d2d6da;
+    border-radius: 0.5rem;
+    appearance: none;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #0472EF;
+    border-color: #0472EF;
+}
+.select2-dropdown {
+    background-color: #fff;
+    border: 1px solid #f6f8fa;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    left: -100000px;
+    width: 100%;
+    z-index: 1051;
+}
+.select2-container--default .select2-selection--single {
+    background-color: #f6f8fa;
+    border: 1px solid #f6f8fa;
+    border-radius: 5px;
+}
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 38px;
+    user-select: none;
+    -webkit-user-select: none;
+}
